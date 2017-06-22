@@ -11,7 +11,10 @@ MAINTAINER Steven E. Pav, steven@gilgamath.com
 
 ENV DOCKFILE_REFRESHED_AT 2017.06.21
 
-RUN (conda install -c r r-base=3.2.2)
+RUN (conda install -v -c anaconda gcc ; \
+	conda install -v -c conda-forge make=4.2.1 ; \
+	conda install -c r r-base=3.2.2)
+
 #RUN (conda update conda; \
 	#conda update --all; \
 	#conda install -c r r-essentials )
@@ -33,8 +36,8 @@ ADD lockfile.yml /opt/
 #RUN (conda install -c anaconda gcc=4.8.5)
 #RUN (conda install -c anaconda gcc)
 
-RUN (conda install -c anaconda gcc ; \
-	conda install -c conda-forge make=4.2.1)
+#RUN (conda install -v -c anaconda gcc ; \
+	#conda install -v -c conda-forge make=4.2.1)
 
 # always use array syntax:
 #ENTRYPOINT ["/bin/bash"]
