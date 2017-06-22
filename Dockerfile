@@ -30,6 +30,9 @@ ADD lockfile.yml /opt/
 # 3.8 would be more appropriate.
 RUN (conda install -c conda-forge make=4.2.1)
 
+#RUN (conda install -c anaconda gcc=4.8.5)
+RUN (conda install -c anaconda gcc)
+
 # always use array syntax:
 #ENTRYPOINT ["/bin/bash"]
 ENTRYPOINT ["R"]
