@@ -28,10 +28,13 @@ ADD lockfile.yml /opt/
 
 #RUN (conda install -c tsnyder gnumake=4.2)
 # 3.8 would be more appropriate.
-RUN (conda install -c conda-forge make=4.2.1)
+#RUN (conda install -c conda-forge make=4.2.1)
 
 #RUN (conda install -c anaconda gcc=4.8.5)
-RUN (conda install -c anaconda gcc)
+#RUN (conda install -c anaconda gcc)
+
+RUN (conda install -c anaconda gcc ; \
+	conda install -c conda-forge make=4.2.1)
 
 # always use array syntax:
 #ENTRYPOINT ["/bin/bash"]
