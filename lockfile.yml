@@ -1,0 +1,7 @@
+# lockbox file which has problems under anaconda 3.2.2 broken install
+
+packages:
+  -
+    name: glmnet
+    version: 2.0-10
+

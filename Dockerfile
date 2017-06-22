@@ -4,8 +4,8 @@
 #
 # VERSION 0.1
 
-#FROM continuumio/anaconda
-FROM continuumio/anaconda:2.3.0
+FROM continuumio/anaconda
+#FROM continuumio/anaconda:2.3.0
 
 MAINTAINER Steven E. Pav, steven@gilgamath.com
 
@@ -21,10 +21,14 @@ RUN (conda install -c r r-base=3.2.2)
 #RUN apt-get update
 #RUN apt-get upgrade -y
 
-
+RUN mkdir -p /opt;
+WORKDIR /opt
+ADD .Rprofile /opt/
+ADD lockfile.yml /opt/
 
 # always use array syntax:
-#ENTRYPOINT ["echo","hi"]
+#ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["R"]
 # ENTRYPOINT and CMD are better together:
 #CMD ["hi"]
 
