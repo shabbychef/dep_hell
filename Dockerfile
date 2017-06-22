@@ -11,9 +11,15 @@ MAINTAINER Steven E. Pav, steven@gilgamath.com
 
 ENV DOCKFILE_REFRESHED_AT 2017.06.21
 
-RUN (conda install -v -c anaconda gcc ; \
+RUN (conda update conda; \
+	conda update --all ; \
+	conda install -v -c anaconda gcc ; \
 	conda install -v -c conda-forge make=4.2.1 ; \
 	conda install -c r r-base=3.2.2)
+
+#RUN (conda install -v -c anaconda gcc ; \
+	#conda install -v -c conda-forge make=4.2.1 ; \
+	#conda install -c r r-base=3.2.2)
 
 #RUN (conda update conda; \
 	#conda update --all; \
