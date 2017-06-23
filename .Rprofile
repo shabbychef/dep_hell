@@ -52,7 +52,10 @@ if (!nzchar(Sys.getenv("R_ROOT"))) {
     unlink(lockbox_tar, TRUE, TRUE)
   }
 
-  lockbox::lockbox("lockfile.yml")
+	# do not run before the lockfile is in place:
+	if (file.exists('lockfile.yml')) {
+		lockbox::lockbox("lockfile.yml")
+	}
   #library(bettertrace)  # Make it easier to find errors.
   #syberia::syberia_engine()
 
